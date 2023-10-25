@@ -14,9 +14,9 @@ const selectors = {
 };
 const { breedSelect, loader, error, divCatInfo } = selectors;
 
-breedSelect.classList.add('is-hidden');
-error.classList.add('is-hidden');
-divCatInfo.classList.add('is-hidden');
+// divCatInfo.classList.add('is-hidden');
+// breedSelect.classList.add('is-hidden');
+// error.classList.add('is-hidden');
 
 let breedsOptions = [];
 
@@ -53,8 +53,10 @@ function onSelectBreed(event) {
 
     fetchCatByBreed(breedId)
     .then(data => {
-        console.log(data)
+        // console.log(data)
         loader.classList.replace('loader', 'is-hidden');
+        divCatInfo.classList.remove('is-hidden');
+
 //         breedSelect.classList.remove('is-hidden');
         const { url, breeds } = data[0];
         
@@ -69,8 +71,8 @@ function onSelectBreed(event) {
         <p>${breeds[0].description}</p>
         <p><span class="temperament-title">Temperament:</span> ${breeds[0].temperament}</p>
         </div>`
-        divCatInfo.classList.remove('is-hidden');
-        console.log(divCatInfo);
+        // divCatInfo.classList.remove('is-hidden');
+        // console.log(divCatInfo);
     })
     .catch(onFetchError);
 };
