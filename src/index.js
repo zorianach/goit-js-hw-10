@@ -33,7 +33,10 @@ fetchBreeds()
     // console.log(breedSelect); 
            
     new SlimSelect({
-        select: '#breed-list'
+        select: '#breed-list',
+        settings: {
+            placeholderText: 'Select a Cat Breed',
+          }
     })
     breedSelect.classList.remove('is-hidden');
 })
